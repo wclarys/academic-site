@@ -100,14 +100,14 @@
 
     .hero-top {
       display: flex;
-      gap: 1.25rem;
+      gap: 1.5rem;
       align-items: center;
       margin-bottom: 1rem;
     }
 
     .profile-photo {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid rgba(255,255,255,0.14);
@@ -124,10 +124,17 @@
       font-size: 1.08rem;
       color: var(--muted);
       max-width: 60ch;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.2rem;
     }
 
     .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .link-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.85rem;
@@ -143,6 +150,7 @@
       font-weight: 700;
       border: 1px solid transparent;
       transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      text-align: center;
     }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary {
@@ -219,10 +227,32 @@
     .meta { color: var(--accent-2); font-size: 0.92rem; font-weight: 700; }
     .muted { color: var(--muted); }
 
-    .pub-list {
-      display: grid;
-      gap: 0.95rem;
+    .pub-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
     }
+
+    .tab-btn {
+      cursor: pointer;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 700;
+      font: inherit;
+    }
+
+    .tab-btn.active {
+      background: rgba(105,183,255,0.14);
+      color: #dff1ff;
+      border-color: rgba(105,183,255,0.22);
+    }
+
+    .pub-group { display: none; }
+    .pub-group.active { display: grid; gap: 0.95rem; }
 
     .pub-item {
       display: grid;
@@ -298,8 +328,12 @@
         align-items: center;
         text-align: center;
       }
+      .profile-photo {
+        width: 170px;
+        height: 170px;
+      }
       .lead { font-size: 1rem; }
-      .cta-row, .hero-meta { justify-content: center; }
+      .cta-row, .link-row, .hero-meta, .pub-tabs { justify-content: center; }
       .pub-item {
         grid-template-columns: 1fr;
       }
@@ -342,7 +376,10 @@
           </div>
 
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:warre.clarys@uantwerpen.be">Let’s collaborate</a>
+            <a class="btn btn-primary" href="mailto:warre.clarys@uantwerpen.be">Send an email to warre.clarys@uantwerpen.be</a>
+          </div>
+
+          <div class="link-row">
             <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a class="btn btn-secondary" href="https://scholar.google.com/citations?user=UOF4WLYAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
             <a class="btn btn-secondary" href="https://orcid.org/" target="_blank" rel="noreferrer">ORCID</a>
@@ -425,78 +462,88 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <h2>Selected publications</h2>
+            <h2>Publications</h2>
           </div>
         </div>
-        <div class="content-card pub-list">
-          <div class="pub-item">
-            <img class="pub-cover" src="QIRT_journal.jpg" alt="Journal cover placeholder" />
-            <div>
-              <strong>Optimising neural networks for perforator detection in DIEP flap breast reconstruction using dynamic infrared thermography</strong>
-              <div class="muted">Quantitative Infrared Thermography Journal (2025)</div>
-              <div class="pub-links">
-                <a class="primary-link" href="https://doi.org/10.1080/17686733.2025.2585417" target="_blank" rel="noreferrer">DOI</a>
-                <a href="optimising-neural-networks-diep.pdf" target="_blank" rel="noreferrer">PDF</a>
+
+        <div class="pub-tabs">
+          <button class="tab-btn active" data-target="journal-papers">Journal papers</button>
+          <button class="tab-btn" data-target="conference-proceedings">Conference proceedings</button>
+        </div>
+
+        <div class="content-card">
+          <div id="journal-papers" class="pub-group active">
+            <div class="pub-item">
+              <img class="pub-cover" src="QIRT_journal.jpg" alt="QIRT journal cover" />
+              <div>
+                <strong>Optimising neural networks for perforator detection in DIEP flap breast reconstruction using dynamic infrared thermography</strong>
+                <div class="muted">Quantitative Infrared Thermography Journal (2025)</div>
+                <div class="pub-links">
+                  <a class="primary-link" href="https://doi.org/10.1080/17686733.2025.2585417" target="_blank" rel="noreferrer">DOI</a>
+                  <a href="optimising-neural-networks-diep.pdf" target="_blank" rel="noreferrer">PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-item">
+              <img class="pub-cover" src="JPRAS_cover.jpg" alt="JPRAS journal cover" />
+              <div>
+                <strong>Comparative study of cooling techniques for perforator detection in DIEP flap reconstruction using dynamic infrared thermography</strong>
+                <div class="muted">Journal of Plastic, Reconstructive & Aesthetic Surgery (2025)</div>
+                <div class="pub-links">
+                  <a class="primary-link" href="https://doi.org/10.1016/j.bjps.2025.08.018" target="_blank" rel="noreferrer">DOI</a>
+                  <a href="comparative-cooling-techniques-diep.pdf" target="_blank" rel="noreferrer">PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-item">
+              <img class="pub-cover" src="JPRASOPEN_cover.jpg" alt="JPRAS Open cover" />
+              <div>
+                <strong>Dynamic infrared thermography in free flap surgery: A systematic review</strong>
+                <div class="muted">JPRAS Open (2025)</div>
+                <div class="pub-links">
+                  <a class="primary-link" href="https://doi.org/10.1016/j.jpra.2025.11.027" target="_blank" rel="noreferrer">DOI</a>
+                  <a href="dynamic-infrared-thermography-systematic-review.pdf" target="_blank" rel="noreferrer">PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-item">
+              <img class="pub-cover" src="sensors_cover.png" alt="Sensors journal cover" />
+              <div>
+                <strong>Thermography in Bike Fitting: A Literature Review</strong>
+                <div class="muted">Sensors (2025)</div>
+                <div class="pub-links">
+                  <a class="primary-link" href="https://doi.org/10.3390/s25082356" target="_blank" rel="noreferrer">DOI</a>
+                  <a href="thermography-bike-fitting-review.pdf" target="_blank" rel="noreferrer">PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-item">
+              <img class="pub-cover" src="IJCARS_cover.jfif" alt="IJCARS journal cover" />
+              <div>
+                <strong>Automated thermographic detection of blood vessels for DIEP flap reconstructive surgery</strong>
+                <div class="muted">International Journal of Computer Assisted Radiology and Surgery (2024)</div>
+                <div class="pub-links">
+                  <a class="primary-link" href="https://doi.org/10.1007/s11548-024-03199-8" target="_blank" rel="noreferrer">DOI</a>
+                  <a href="automated-thermographic-detection-blood-vessels.pdf" target="_blank" rel="noreferrer">PDF</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="pub-item">
-            <img class="pub-cover" src="JPRAS_cover.jpg" alt="Journal cover placeholder" />
-            <div>
-              <strong>Comparative study of cooling techniques for perforator detection in DIEP flap reconstruction using dynamic infrared thermography</strong>
-              <div class="muted">Journal of Plastic, Reconstructive & Aesthetic Surgery (2025)</div>
-              <div class="pub-links">
-                <a class="primary-link" href="https://doi.org/10.1016/j.bjps.2025.08.018" target="_blank" rel="noreferrer">DOI</a>
-                <a href="comparative-cooling-techniques-diep.pdf" target="_blank" rel="noreferrer">PDF</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="pub-item">
-            <img class="pub-cover" src="JPRASOPEN_cover.jpg" alt="Journal cover placeholder" />
-            <div>
-              <strong>Dynamic infrared thermography in free flap surgery: A systematic review</strong>
-              <div class="muted">JPRAS Open (2025)</div>
-              <div class="pub-links">
-                <a class="primary-link" href="https://doi.org/10.1016/j.jpra.2025.11.027" target="_blank" rel="noreferrer">DOI</a>
-                <a href="dynamic-infrared-thermography-systematic-review.pdf" target="_blank" rel="noreferrer">PDF</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="pub-item">
-            <img class="pub-cover" src="sensors_cover.png" alt="Journal cover placeholder" />
-            <div>
-              <strong>Thermography in Bike Fitting: A Literature Review</strong>
-              <div class="muted">Sensors (2025)</div>
-              <div class="pub-links">
-                <a class="primary-link" href="https://doi.org/10.3390/s25082356" target="_blank" rel="noreferrer">DOI</a>
-                <a href="thermography-bike-fitting-review.pdf" target="_blank" rel="noreferrer">PDF</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="pub-item">
-            <img class="pub-cover" src="IJCARS_cover.jfif" alt="Journal cover placeholder" />
-            <div>
-              <strong>Automated thermographic detection of blood vessels for DIEP flap reconstructive surgery</strong>
-              <div class="muted">International Journal of Computer Assisted Radiology and Surgery (2024)</div>
-              <div class="pub-links">
-                <a class="primary-link" href="https://doi.org/10.1007/s11548-024-03199-8" target="_blank" rel="noreferrer">DOI</a>
-                <a href="automated-thermographic-detection-blood-vessels.pdf" target="_blank" rel="noreferrer">PDF</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="pub-item">
-            <img class="pub-cover" src="MeMeA_2024.png" alt="Conference cover placeholder" />
-            <div>
-              <strong>HypIRskin: Thermography-Guided Device for Diagnosis and Characterization of Skin Cancer Lesions</strong>
-              <div class="muted">MeMeA 2024 Conference Proceedings</div>
-              <div class="pub-links">
-                <a class="primary-link" href="https://doi.org/10.1109/MEMEA60663.2024.10596792" target="_blank" rel="noreferrer">DOI</a>
-                <a href="hypirskin-memea-2024.pdf" target="_blank" rel="noreferrer">PDF</a>
+          <div id="conference-proceedings" class="pub-group">
+            <div class="pub-item">
+              <img class="pub-cover" src="MeMeA_2024.png" alt="MeMeA 2024 cover" />
+              <div>
+                <strong>HypIRskin: Thermography-Guided Device for Diagnosis and Characterization of Skin Cancer Lesions</strong>
+                <div class="muted">MeMeA 2024 Conference Proceedings</div>
+                <div class="pub-links">
+                  <a class="primary-link" href="https://doi.org/10.1109/MEMEA60663.2024.10596792" target="_blank" rel="noreferrer">DOI</a>
+                  <a href="hypirskin-memea-2024.pdf" target="_blank" rel="noreferrer">PDF</a>
+                </div>
               </div>
             </div>
           </div>
@@ -547,5 +594,22 @@
       © 2026 Warre Clarys · Built for conference sharing and academic visibility.
     </div>
   </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const pubGroups = document.querySelectorAll('.pub-group');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-target');
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        pubGroups.forEach(group => group.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
