@@ -4,444 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warre Clarys | PhD Researcher</title>
-  <meta name="description" content="Personal academic website of Warre Clarys, PhD researcher at the University of Antwerp working on thermography, finite element modeling, and AI in breast reconstruction." />
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: rgba(255,255,255,0.08);
-      --panel-strong: rgba(255,255,255,0.12);
-      --text: #edf2f7;
-      --muted: #b7c0d1;
-      --accent: #69b7ff;
-      --accent-2: #8ef0d6;
-      --border: rgba(255,255,255,0.14);
-      --shadow: 0 20px 50px rgba(0,0,0,0.28);
-      --max: 1080px;
+      --bg:#0b1020;--panel:rgba(255,255,255,0.08);--text:#edf2f7;--muted:#b7c0d1;--accent:#69b7ff;--accent2:#8ef0d6;
     }
+    body{margin:0;font-family:system-ui;color:var(--text);background:#0b1020;line-height:1.6}
+    .container{width:min(92%,900px);margin:auto}
+    .nav{position:sticky;top:0;background:#0b1020;padding:0.8rem 0}
+    .nav-links{display:flex;gap:1rem;font-size:.9rem;color:var(--muted);flex-wrap:wrap}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(105,183,255,0.22), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(142,240,214,0.18), transparent 24%),
-        linear-gradient(180deg, #0b1020 0%, #10182d 100%);
-      line-height: 1.6;
-    }
+    .hero{padding:2rem 0}
+    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:1rem}
+    h1{margin:.2rem 0}
+    .lead{color:var(--muted)}
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    .btn{display:inline-block;padding:.6rem .9rem;border-radius:10px;margin:.3rem 0;font-weight:600}
+    .primary{background:var(--accent);color:#000}
+    .secondary{border:1px solid #444;color:var(--text)}
 
-    .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
+    .section{padding:1.5rem 0}
 
-    .nav {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(14px);
-      background: rgba(11,16,32,0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 10;
-    }
+    .pub-item{margin-bottom:1rem;padding:1rem;border:1px solid #333;border-radius:12px}
+    .links{margin-top:.5rem}
+    .links a{margin-right:.7rem;color:var(--accent)}
 
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-      gap: 1rem;
-    }
-
-    .brand { font-weight: 800; letter-spacing: 0.02em; }
-    .brand span { color: var(--accent-2); }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.96rem;
-      color: var(--muted);
-    }
-
-    .hero {
-      padding: 5rem 0 3.25rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      padding: 2rem;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(105,183,255,0.12);
-      border: 1px solid rgba(105,183,255,0.24);
-      color: #d6e9ff;
-      font-size: 0.88rem;
-      margin-bottom: 1rem;
-    }
-
-    h1, h2, h3 { line-height: 1.15; margin: 0 0 0.9rem; }
-    h1 { font-size: clamp(2.2rem, 4.5vw, 4.2rem); letter-spacing: -0.04em; }
-    h2 { font-size: clamp(1.45rem, 2vw, 2rem); }
-    h3 { font-size: 1.05rem; }
-
-    .lead {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 60ch;
-      margin-bottom: 1.4rem;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 1.3rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 1.1rem;
-      border-radius: 14px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #7a8cff);
-      color: #07111f;
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.12);
-      color: var(--text);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 1.25rem;
-    }
-
-    .pill {
-      padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .hero-side {
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .mini-block {
-      padding: 1rem;
-      border-radius: 18px;
-      background: var(--panel-strong);
-      border: 1px solid rgba(255,255,255,0.09);
-    }
-
-    .mini-block p, .mini-block li { color: var(--muted); margin: 0.35rem 0 0; }
-    .mini-block ul { padding-left: 1rem; margin: 0.2rem 0 0; }
-
-    .section {
-      padding: 1.25rem 0 0.5rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      color: var(--muted);
-      margin: 0;
-      max-width: 60ch;
-    }
-
-    .grid-2, .grid-3 {
-      display: grid;
-      gap: 1rem;
-    }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-    .content-card {
-      padding: 1.25rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .meta { color: var(--accent-2); font-size: 0.92rem; font-weight: 700; }
-    .muted { color: var(--muted); }
-
-    .pub-list {
-      display: grid;
-      gap: 0.95rem;
-    }
-
-    .pub-item {
-      padding: 1rem 1.1rem;
-      background: rgba(255,255,255,0.05);
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.09);
-    }
-
-    .pub-item strong { display: block; margin-bottom: 0.35rem; }
-    .pub-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.6rem;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      padding: 3rem 0 4rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    @media (max-width: 920px) {
-      .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .nav-inner, .section-header { align-items: start; }
-      .nav-inner { flex-direction: column; }
+    @media(max-width:600px){
+      .nav-links{justify-content:center}
+      h1{font-size:1.6rem}
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top">Warre<span> Clarys</span></a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#contact">Contact</a>
-      </div>
+
+<nav class="nav">
+  <div class="container nav-links">
+    <a href="#">Home</a>
+    <a href="#publications">Publications</a>
+  </div>
+</nav>
+
+<div class="container hero">
+  <!-- PROFIEL FOTO: upload bestand en zet naam hier -->
+  <img src="profile.jpg" alt="profile">
+
+  <h1>Warre Clarys</h1>
+  <p class="lead">PhD researcher working on thermography, finite element modeling and AI for medical applications.</p>
+
+  <div>
+    <a class="btn primary" href="mailto:warre.clarys@uantwerpen.be">Email me</a>
+    <a class="btn secondary" href="#">LinkedIn</a>
+    <a class="btn secondary" href="#">Google Scholar</a>
+    <a class="btn secondary" href="#">ORCID</a>
+    <a class="btn secondary" href="#">University page</a>
+  </div>
+
+  <p style="margin-top:1rem;color:var(--accent2)">
+    I am actively looking for collaborations. Feel free to reach out!
+  </p>
+</div>
+
+<section id="publications" class="section container">
+  <h2>Publications</h2>
+
+  <div class="pub-item">
+    <strong>Optimising neural networks for perforator detection...</strong>
+    <div class="links">
+      <a href="#">DOI</a>
+      <a href="paper1.pdf">PDF</a>
     </div>
-  </nav>
+  </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="card hero-main">
-          <div class="eyebrow">PhD Researcher • University of Antwerp • FWO Fellow</div>
-          <h1>Warre Clarys</h1>
-          <p class="lead">
-            PhD researcher working at the intersection of <strong>thermography</strong>, <strong>finite element modeling</strong>, and <strong>artificial intelligence</strong> for medical and biomedical applications, with a focus on breast reconstruction.
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:warre.clarys@uantwerpen.be">Get in touch</a>
-            <a class="btn btn-secondary" href="https://scholar.google.com/citations?user=UOF4WLYAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-            <a class="btn btn-secondary" href="https://www.uantwerpen.be/en/staff/warre-clarys_26151/" target="_blank" rel="noreferrer">University Profile</a>
-          </div>
-          <div class="hero-meta">
-            <span class="pill">Antwerp, Belgium</span>
-            <span class="pill">Industrial Vision Lab (InViLab)</span>
-            <span class="pill">Medical measurements & imaging</span>
-          </div>
-        </div>
-
-        <aside class="card hero-side">
-          <div class="mini-block">
-            <h3>Current research</h3>
-            <p>Optimizing dynamic infrared thermography in breast reconstructions using finite element simulations and AI.</p>
-          </div>
-          <div class="mini-block">
-            <h3>Highlights</h3>
-            <ul>
-              <li>FWO PhD Fellowship</li>
-              <li>Eos Thesis Award</li>
-              <li>Mtech+ Thesis Award</li>
-              <li>Best Student of the Year</li>
-            </ul>
-          </div>
-          <div class="mini-block">
-            <h3>Interests</h3>
-            <p>Technology, biomedicine, traveling, rock climbing, and surfing.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>About</h2>
-            <p>A short professional introduction that works well for conference visitors scanning your poster QR code.</p>
-          </div>
-        </div>
-        <div class="content-card">
-          <p>
-            I am a PhD researcher at the University of Antwerp and the Industrial Vision Lab (InViLab), supported by the Research Foundation Flanders (FWO). My research focuses on improving breast reconstruction workflows by combining dynamic infrared thermography, computational modeling, and data-driven methods. I am especially interested in how measurement technologies and AI can contribute to clinically relevant, non-invasive decision support.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Research & experience</h2>
-            <p>Keep this section concise so visitors can immediately understand what you do.</p>
-          </div>
-        </div>
-        <div class="grid-2">
-          <article class="content-card">
-            <div class="meta">Nov 2024 – Present</div>
-            <h3>PhD Researcher</h3>
-            <p class="muted">University of Antwerp · Research Foundation Flanders (FWO)</p>
-            <p>Developing methods to optimize breast reconstruction using thermography, finite element modeling, and artificial intelligence.</p>
-          </article>
-          <article class="content-card">
-            <div class="meta">Nov 2023 – Present</div>
-            <h3>Researcher</h3>
-            <p class="muted">Industrial Vision Lab (InViLab), University of Antwerp</p>
-            <p>Working on thermographic imaging, medical measurements, and computational approaches across biomedical applications.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Selected publications</h2>
-            <p>These are ideal for an academic landing page. You can add DOI buttons, PDFs, or a full publications page later.</p>
-          </div>
-        </div>
-        <div class="content-card pub-list">
-          <div class="pub-item">
-            <strong>Optimising neural networks for perforator detection in DIEP flap breast reconstruction using dynamic infrared thermography</strong>
-            <div class="muted">Quantitative Infrared Thermography Journal (2025)</div>
-            <div class="pub-links"><a href="https://doi.org/10.1080/17686733.2025.2585417" target="_blank" rel="noreferrer">DOI</a></div>
-          </div>
-          <div class="pub-item">
-            <strong>Comparative study of cooling techniques for perforator detection in DIEP flap reconstruction using dynamic infrared thermography</strong>
-            <div class="muted">Journal of Plastic, Reconstructive & Aesthetic Surgery (2025)</div>
-            <div class="pub-links"><a href="https://doi.org/10.1016/j.bjps.2025.08.018" target="_blank" rel="noreferrer">DOI</a></div>
-          </div>
-          <div class="pub-item">
-            <strong>Dynamic infrared thermography in free flap surgery: A systematic review</strong>
-            <div class="muted">JPRAS Open (2025)</div>
-            <div class="pub-links"><a href="https://doi.org/10.1016/j.jpra.2025.11.027" target="_blank" rel="noreferrer">DOI</a></div>
-          </div>
-          <div class="pub-item">
-            <strong>Thermography in Bike Fitting: A Literature Review</strong>
-            <div class="muted">Sensors (2025)</div>
-            <div class="pub-links"><a href="https://doi.org/10.3390/s25082356" target="_blank" rel="noreferrer">DOI</a></div>
-          </div>
-          <div class="pub-item">
-            <strong>Automated thermographic detection of blood vessels for DIEP flap reconstructive surgery</strong>
-            <div class="muted">International Journal of Computer Assisted Radiology and Surgery (2024)</div>
-            <div class="pub-links"><a href="https://doi.org/10.1007/s11548-024-03199-8" target="_blank" rel="noreferrer">DOI</a></div>
-          </div>
-          <div class="pub-item">
-            <strong>HypIRskin: Thermography-Guided Device for Diagnosis and Characterization of Skin Cancer Lesions</strong>
-            <div class="muted">MeMeA 2024 Conference Proceedings</div>
-            <div class="pub-links"><a href="https://doi.org/10.1109/MEMEA60663.2024.10596792" target="_blank" rel="noreferrer">DOI</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="teaching" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Teaching</h2>
-          </div>
-        </div>
-        <div class="grid-2">
-          <article class="content-card">
-            <div class="meta">2023 – Present</div>
-            <h3>Teaching Assistant — Computer-Aided Designing and 3D Modeling</h3>
-            <p class="muted">University of Antwerp</p>
-          </article>
-          <article class="content-card">
-            <div class="meta">2024 – 2025</div>
-            <h3>Teaching Assistant — Computer-Aided Engineering</h3>
-            <p class="muted">University of Antwerp</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Awards</h2>
-          </div>
-        </div>
-        <div class="grid-3">
-          <article class="content-card"><div class="meta">2024</div><h3>FWO Grant — PhD Fellowship</h3></article>
-          <article class="content-card"><div class="meta">2023</div><h3>Eos Thesis Award</h3></article>
-          <article class="content-card"><div class="meta">2023</div><h3>Mtech+ Thesis Award & Audience Award</h3></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="content-card">
-          <h2>Contact</h2>
-          <p class="muted">For collaborations, conference discussions, or questions about my research, feel free to reach out.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:warre.clarys@uantwerpen.be">warre.clarys@uantwerpen.be</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn btn-secondary" href="https://orcid.org/" target="_blank" rel="noreferrer">ORCID</a>
-          </div>
-          <p class="muted">Tip: replace the LinkedIn and ORCID links above with your exact profile URLs before publishing.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © 2026 Warre Clarys · Built for conference sharing and academic visibility.
+  <div class="pub-item">
+    <strong>Comparative study of cooling techniques...</strong>
+    <div class="links">
+      <a href="#">DOI</a>
+      <a href="paper2.pdf">PDF</a>
     </div>
-  </footer>
+  </div>
+
+</section>
+
 </body>
 </html>
