@@ -152,10 +152,18 @@
     }
 
     .email-link {
-      background: rgba(142,240,214,0.08);
-      border-color: rgba(142,240,214,0.55);
+      background: linear-gradient(135deg, rgba(142,240,214,0.12), rgba(105,183,255,0.10));
+      border-color: rgba(142,240,214,0.72);
       color: #f6fffb;
-      box-shadow: 0 0 0 1px rgba(142,240,214,0.1) inset;
+      box-shadow: 0 0 0 1px rgba(142,240,214,0.16) inset, 0 10px 24px rgba(0,0,0,0.14);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .email-link .mail-label {
+      color: var(--accent);
+      font-weight: 800;
+      margin-right: 0.45rem;
     }
 
     .email-link::before {
@@ -399,7 +407,7 @@
           <div class="cta-row">
             <a class="btn btn-primary" href="mailto:warre.clarys@uantwerpen.be">Let’s collaborate</a>
             <span class="cta-connector" aria-hidden="true"></span>
-            <a class="btn btn-secondary email-link" href="mailto:warre.clarys@uantwerpen.be">warre.clarys@uantwerpen.be</a>
+            <a class="btn btn-secondary email-link" href="mailto:warre.clarys@uantwerpen.be"><span class="mail-label">Mail to</span> warre.clarys@uantwerpen.be</a>
           </div>
 
           <div class="link-row">
@@ -410,7 +418,7 @@
           </div>
 
           <p class="muted" style="margin:0 0 1rem; max-width:58ch;">
-            I am always <strong style="color: var(--text);">happy to connect</strong> with researchers, clinicians, and industry partners interested in collaboration, conference discussions, or applied research opportunities.
+            I am always <strong>happy to connect</strong> with researchers, clinicians, and industry partners interested in collaboration, conference discussions, or applied research opportunities.
           </p>
 
           <div class="hero-meta">
